@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OddFusion · Desempenho</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{background:#0f172a;color:#f1f5f9;max-width:430px;margin:0 auto;padding:15px}
+.cabecalho{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #1e293b}
+.titulo-pagina{font-size:17px;font-weight:bold;color:#fff}
+.subtitulo-pagina{font-size:11px;color:#94a3b8;margin-top:2px}
+.data-topo{font-size:11px;color:#94a3b8}
+.status-online{color:#4ade80;font-size:12px;margin-top:4px}
+.botao-atualizar{background:#1e293b;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-size:11px;cursor:pointer}
+nav{display:flex;gap:6px;margin:12px 0;padding-bottom:8px;border-bottom:1px solid #1e293b;flex-wrap:wrap}
+nav a{color:#94a3b8;text-decoration:none;font-size:12px;padding:3px 4px;border-bottom:2px solid transparent}
+nav a.ativo{color:#fff;border-bottom:2px solid #4ade80;font-weight:500}
+h2{font-size:14px;margin:12px 0 8px 0;color:#e2e8f0}
+.resumo-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:15px}
+.card{background:#1e293b;border-radius:8px;padding:10px}
+.card-valor{font-size:20px;font-weight:bold}
+.card-positivo{color:#4ade80}
+.card-aviso{color:#facc15}
+.card-info{color:#60a5fa}
+.card-legenda{font-size:10px;color:#94a3b8;margin-top:4px}
+.barra-container{height:8px;background:#2e3b4d;border-radius:4px;overflow:hidden;margin-top:6px}
+.barra-preenchida{height:100%;border-radius:4px}
+.acerto{background:#4ade80}
+.erro{background:#f87171}
+.secao-bloco{background:#1e293b;border-radius:8px;padding:10px;margin-bottom:12px}
+.secao-titulo{font-size:12px;color:#e2e8f0;margin-bottom:8px;font-weight:500}
+.linha-item{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #2e3b4d;font-size:12px}
+.linha-ultima{border-bottom:none}
+.texto-acerto{color:#4ade80}
+.texto-erro{color:#f87171}
+.texto-neutro{color:#94a3b8}
+.oculto{display:none}
+</style>
+</head>
+<body>
+
+<div class="cabecalho">
+<div>
+<div class="titulo-pagina">OddFusion</div>
+<div class="subtitulo-pagina">Desempenho do Sistema</div>
+<div class="status-online">✅ Sistema Online</div>
+</div>
+<div>
+<div class="data-topo">10/09/2026</div>
+<button class="botao-atualizar">Atualizar</button>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Resumo</a>
+<a href="nacionais.html">Nacionais</a>
+<a href="internacionais.html">Internacionais</a>
+<a href="palpites.html">Palpites IA</a>
+<a href="desempenho.html">Desempenho</a>
+<a href="buscar.html">Buscar</a>
+<a href="sobre.html">Sobre</a>
+</nav>
+
+<h2>Resumo Geral</h2>
+<div class="resumo-cards">
+<div class="card">
+<div class="card-valor card-positivo">78,4%</div>
+<div class="card-legenda">Taxa de Acerto</div>
+<div class="barra-container"><div class="barra-preenchida acerto" style="width:78%"></div></div>
+</div>
+<div class="card">
+<div class="card-valor card-aviso">1.247</div>
+<div class="card-legenda">Palpites Emitidos</div>
+<div class="barra-container"><div class="barra-preenchida" style="width:100%;background:#60a5fa"></div></div>
+</div>
+<div class="card">
+<div class="card-valor card-info">82%</div>
+<div class="card-legenda">Nacionais</div>
+<div class="barra-container"><div class="barra-preenchida" style="width:82%;background:#60a5fa"></div></div>
+</div>
+<div class="card">
+<div class="card-valor card-positivo">75%</div>
+<div class="card-legenda">Internacionais</div>
+<div class="barra-container"><div class="barra-preenchida acerto" style="width:75%"></div></div>
+</div>
+</div>
+
+<h2>Desempenho por Confiança</h2>
+<div class="secao-bloco">
+<div class="linha-item">
+<span>Alta Confiança</span>
+<span class="texto-acerto">89,2% · 342 jogos</span>
+</div>
+<div class="linha-item">
+<span>Média Confiança</span>
+<span class="texto-aviso">72,5% · 518 jogos</span>
+</div>
+<div class="linha-item linha-ultima">
+<span>Baixa Confiança</span>
+<span class="texto-erro">58,3% · 387 jogos</span>
+</div>
+</div>
+
+<h2>Últimos 10 Resultados</h2>
+<div class="secao-bloco">
+<div class="linha-item">
+<span>Palmeiras x Santos</span>
+<span class="texto-acerto">✅ ACERTO</span>
+</div>
+<div class="linha-item">
+<span>Grêmio x Cruzeiro</span>
+<span class="texto-erro">❌ ERRO</span>
+</div>
+<div class="linha-item">
+<span>Botafogo x Vasco</span>
+<span class="texto-acerto">✅ ACERTO</span>
+</div>
+<div class="linha-item">
+<span>Man. City x Arsenal</span>
+<span class="texto-acerto">✅ ACERTO</span>
+</div>
+<div class="linha-item">
+<span>Corinthians x Palmeiras</span>
+<span class="texto-acerto">✅ ACERTO</span>
+</div>
+<div class="linha-item">
+<span>Real Madrid x Atlético</span>
+<span class="texto-erro">❌ ERRO</span>
+</div>
+<div class="linha-item">
+<span>Flamengo x São Paulo</span>
+<span class="texto-acerto">✅ ACERTO</span>
+</div>
+<div class="linha-item">
+<span>Bayern x Barcelona</span>
+<span class="texto-acerto">✅ ACERTO</span>
+</div>
+<div class="linha-item">
+<span>Inter x Juventus</span>
+<span class="texto-acerto">✅ ACERTO</span>
+</div>
+<div class="linha-item linha-ultima">
+<span>PSG x Marseille</span>
+<span class="texto-erro">❌ ERRO</span>
+</div>
+</div>
+
+<h2>Desempenho por Campeonato</h2>
+<div class="secao-bloco">
+<div class="linha-item">
+<span>Brasileirão Série A</span>
+<span class="texto-acerto">84% · 412 jogos</span>
+</div>
+<div class="linha-item">
+<span>Premier League</span>
+<span class="texto-acerto">79% · 218 jogos</span>
+</div>
+<div class="linha-item">
+span>La Liga</span>
+<span class="texto-aviso">74% · 195 jogos</span>
+</div>
+<div class="linha-item">
+<span>Serie A Itália</span>
+<span class="texto-acerto">76% · 167 jogos</span>
+</div>
+<div class="linha-item linha-ultima">
+<span>Ligue 1 França</span>
+<span class="texto-aviso">71% · 124 jogos</span>
+</div>
+</div>
+
+</body>
+</html>
