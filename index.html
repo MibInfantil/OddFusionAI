@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OddFusion · Resumo</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{background:#0f172a;color:#f1f5f9;max-width:430px;margin:0 auto;padding:15px}
+.cabecalho{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #1e293b}
+.titulo-pagina{font-size:18px;font-weight:bold;color:#fff}
+.subtitulo-pagina{font-size:12px;color:#94a3b8;margin-top:2px}
+.data-topo{font-size:12px;color:#94a3b8}
+.status-online{color:#4ade80;font-size:13px;margin-top:4px}
+.botao-atualizar{background:#1e293b;color:#fff;border:none;padding:6px 12px;border-radius:6px;font-size:12px;cursor:pointer}
+nav{display:flex;gap:12px;margin:15px 0;padding-bottom:10px;border-bottom:1px solid #1e293b;overflow-x:auto}
+nav a{color:#94a3b8;text-decoration:none;font-size:13px;padding:4px 2px;border-bottom:2px solid transparent}
+nav a.ativo{color:#fff;border-bottom:2px solid #4ade80;font-weight:500}
+h2{font-size:15px;margin:15px 0 10px 0;color:#e2e8f0}
+.cards-resumo{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.card{background:#1e293b;border-radius:8px;padding:12px}
+.card-titulo{font-size:12px;color:#94a3b8;margin-bottom:6px}
+.card-valor{font-size:22px;font-weight:bold}
+.card-destaque{color:#4ade80}
+.card-info{color:#60a5fa}
+.card-aviso{color:#facc15}
+.card-meta{font-size:11px;color:#64748b;margin-top:4px}
+.jogo-bloco{background:#1e293b;border-radius:8px;padding:12px;margin-bottom:10px;border-left:3px solid #4ade80}
+.jogo-hoje{border-left-color:#60a5fa}
+.jogo-data{font-size:11px;color:#94a3b8;margin-bottom:6px;display:flex;justify-content:space-between}
+.jogo-times{font-size:14px;font-weight:600;margin-bottom:6px}
+.jogo-palpite{font-size:12px;padding:4px 8px;background:rgba(74,222,128,.1);color:#4ade80;border-radius:4px;display:inline-block}
+.jogo-confianca{font-size:11px;color:#94a3b8;margin-top:4px}
+.ultimos{margin-top:20px}
+.ultimo-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid #1e293b;font-size:12px}
+.ultimo-acerto{color:#4ade80}
+.ultimo-erro{color:#f87171}
+footer{padding:15px;text-align:center;font-size:11px;color:#64748b;border-top:1px solid #1e293b;margin-top:10px}
+.sem-jogos{text-align:center;padding:20px;color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+
+<div class="cabecalho">
+<div>
+<div class="titulo-pagina">OddFusion AI</div>
+<div class="subtitulo-pagina">Motor de Previsões · Conectado</div>
+<div class="status-online" id="statusSistema">✅ ONLINE</div>
+</div>
+<div>
+<div class="data-topo">v1.0.0</div>
+<button class="botao-atualizar" id="btnAtualizar">Atualizar</button>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Resumo</a>
+<a href="nacionais.html">Nacionais</a>
+<a href="internacionais.html">Internacionais</a>
+<a href="palpites.html">Palpites IA</a>
+<a href="desempenho.html">Desempenho</a>
+<a href="buscar.html">Buscar</a>
+<a href="sobre.html">Sobre</a>
+</nav>
+
+<h2>Painel Geral</h2>
+<div class="cards-resumo">
+<div class="card">
+<div class="card-titulo">Taxa de Acerto</div>
+<div class="card-valor card-destaque" id="txAcerto">78,4%</div>
+<div class="card-meta">últimos 50 jogos</div>
+</div>
+<div class="card">
+<div class="card-titulo">Jogos Analisados</div>
+<div class="card-valor card-info" id="totalJogos">1.247</div>
+<div class="card-meta">processados pelo motor</div>
+</div>
+<div class="card">
+<div class="card-titulo">Confiança Média</div>
+<div class="card-valor card-aviso" id="confMedia">76,2%</div>
+<div class="card-meta">dos palpites emitidos</div>
+</div>
+<div class="card">
+<div class="card-titulo">Status</div>
+<div class="card-valor card-destaque" id="statusMotor">ATIVO</div>
+<div class="card-meta">Mediator AI ativo</div>
+</div>
+</div>
+
+<h2>Jogos de Hoje e Amanhã</h2>
+<div id="listaJogos">
+<div class="jogo-bloco jogo-hoje">
+<div class="jogo-data"><span>HOJE</span><span>10/09 · 19:30</span></div>
+<div class="jogo-times">Fortaleza x Internacional</div>
+<div class="jogo-palpite">VITÓRIA FORTALEZA</div>
+<div class="jogo-confianca">Confiança: 89%</div>
+</div>
+<div class="jogo-bloco jogo-hoje">
+<div class="jogo-data"><span>HOJE</span><span>10/09 · 20:00</span></div>
+<div class="jogo-times">Flamengo x São Paulo</div>
+<div class="jogo-palpite">VITÓRIA FLAMENGO</div>
+<div class="jogo-confianca">Confiança: 78%</div>
+</div>
+<div class="jogo-bloco">
+<div class="jogo-data"><span>Amanhã</span><span>11/09 · 16:00</span></div>
+<div class="jogo-times">Corinthians x Palmeiras</div>
+<div class="jogo-palpite">EMPATE</div>
+<div class="jogo-confianca">Confiança: 65%</div>
+</div>
+<div class="jogo-bloco">
+<div class="jogo-data"><span>Amanhã</span><span>11/09 · 18:00</span></div>
+<div class="jogo-times">Bahia x Vitória</div>
+<div class="jogo-palpite">VITÓRIA BAHIA</div>
+<div class="jogo-confianca">Confiança: 82%</div>
+</div>
+</div>
+
+<h2 class="ultimos">Últimos Resultados</h2>
+<div id="listaUltimos">
+<div class="ultimo-item"><div><div style="font-weight:600">São Paulo x Santos</div><div style="color:#94a3b8;font-size:11px">Palpite: VITÓRIA SÃO PAULO</div></div><div class="ultimo-acerto">✅ ACERTO</div></div>
+<div class="ultimo-item"><div><div style="font-weight:600">Grêmio x Cruzeiro</div><div style="color:#94a3b8;font-size:11px">Palpite: EMPATE</div></div><div class="ultimo-erro">❌ ERRO</div></div>
+<div class="ultimo-item"><div><div style="font-weight:600">Botafogo x Vasco</div><div style="color:#94a3b8;font-size:11px">Palpite: VITÓRIA BOTAFOGO</div></div><div class="ultimo-acerto">✅ ACERTO</div></div>
+<div class="ultimo-item"><div><div style="font-weight:600">Palmeiras x Flamengo</div><div style="color:#94a3b8;font-size:11px">Palpite: VITÓRIA PALMEIRAS</div></div><div class="ultimo-acerto">✅ ACERTO</div></div>
+</div>
+
+<footer>OddFusion Engine · Mediator AI v1.0.0 · Dados em tempo real</footer>
+
+<script>
+document.getElementById('btnAtualizar').addEventListener('click',function(){alert('Painel atualizado!')});
+</script>
+
+</body>
+</html>
