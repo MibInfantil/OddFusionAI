@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OddFusion · Internacionais</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{background:#0f172a;color:#f1f5f9;max-width:430px;margin:0 auto;padding:15px}
+.cabecalho{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #1e293b}
+.titulo-pagina{font-size:17px;font-weight:bold;color:#fff}
+.subtitulo-pagina{font-size:11px;color:#94a3b8;margin-top:2px}
+.data-topo{font-size:11px;color:#94a3b8}
+.status-online{color:#4ade80;font-size:12px;margin-top:4px}
+.botao-atualizar{background:#1e293b;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-size:11px;cursor:pointer}
+nav{display:flex;gap:6px;margin:12px 0;padding-bottom:8px;border-bottom:1px solid #1e293b;flex-wrap:wrap}
+nav a{color:#94a3b8;text-decoration:none;font-size:12px;padding:3px 4px;border-bottom:2px solid transparent}
+nav a.ativo{color:#fff;border-bottom:2px solid #4ade80;font-weight:500}
+h2{font-size:14px;margin:12px 0 8px 0;color:#e2e8f0}
+.filtros{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
+.filtro{background:#1e293b;border:none;color:#94a3b8;padding:4px 9px;border-radius:20px;font-size:11px;white-space:nowrap;cursor:pointer}
+.filtro.ativo{background:#4ade80;color:#0f172a;font-weight:bold}
+.jogo-bloco{margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid #1e293b}
+.jogo-liga{font-size:11px;color:#94a3b8;margin-bottom:4px}
+.jogo-data{font-size:11px;color:#60a5fa;margin-bottom:6px;text-align:right;margin-top:-20px}
+.jogo-times{font-size:14px;font-weight:600;margin-bottom:8px}
+.palpite-resultado{display:inline-flex;align-items:center;gap:4px;color:#4ade80;font-size:12px;font-weight:500;margin-bottom:8px}
+.paineis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:8px 0}
+.painel{background:#1e293b;border-radius:6px;padding:6px 4px;text-align:center}
+.painel-nome{font-size:10px;color:#94a3b8;margin-bottom:2px}
+.painel-valor{font-size:13px;font-weight:bold;color:#fff}
+.secao-hist{margin-top:8px}
+.hist-titulo{font-size:10px;color:#94a3b8;margin-bottom:4px;display:flex;align-items:center;gap:3px}
+.hist-linha{font-size:11px;color:#cbd5e1;margin:2px 0;line-height:1.4}
+.conf-ia{font-size:11px;color:#60a5fa;margin-top:4px}
+.oculto{display:none}
+</style>
+</head>
+<body>
+
+<div class="cabecalho">
+<div>
+<div class="titulo-pagina">OddFusion</div>
+<div class="subtitulo-pagina">Jogos Internacionais</div>
+<div class="status-online">✅ Sistema Online</div>
+</div>
+<div>
+<div class="data-topo">10/09/2026</div>
+<button class="botao-atualizar">Atualizar</button>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Resumo</a>
+<a href="nacionais.html">Nacionais</a>
+<a href="internacionais.html">Internacionais</a>
+<a href="palpites.html">Palpites IA</a>
+<a href="desempenho.html">Desempenho</a>
+<a href="buscar.html">Buscar</a>
+<a href="sobre.html">Sobre</a>
+</nav>
+
+<h2>Análise Completa — Ligas do Mundo</h2>
+
+<div class="filtros">
+<button class="filtro ativo" data-filtro="todos">Todos</button>
+<button class="filtro" data-filtro="europa">Europa</button>
+<button class="filtro" data-filtro="inglaterra">Inglaterra</button>
+<button class="filtro" data-filtro="espanha">Espanha</button>
+<button class="filtro" data-filtro="italia">Itália</button>
+<button class="filtro" data-filtro="franca">França</button>
+</div>
+
+<div id="listaJogos">
+
+<div class="jogo-bloco" data-categoria="europa">
+<div class="jogo-liga">Liga dos Campeões · Fase de Grupos</div>
+<div class="jogo-data">10/09 · 17:00</div>
+<div class="jogo-times">Bayern de Munique x Barcelona</div>
+<div class="palpite-resultado">✅ VITÓRIA BAYERN</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">3.2</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">12</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">3</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Bayern: 3.5 gols/jogo · 9 escanteios/jogo · 2 cartões/jogo</div>
+<div class="hist-linha">Barcelona: 2.8 gols/jogo · 7 escanteios/jogo · 2 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 81% · Base: 3.200 análises internacionais</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-categoria="inglaterra">
+<div class="jogo-liga">Premier League</div>
+<div class="jogo-data">10/09 · 14:30</div>
+<div class="jogo-times">Manchester City x Arsenal</div>
+<div class="palpite-resultado">✅ VITÓRIA MANCHESTER CITY</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.9</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">11</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">4</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Man. City: 3.1 gols/jogo · 10 escanteios/jogo · 1 cartão/jogo</div>
+<div class="hist-linha">Arsenal: 2.6 gols/jogo · 8 escanteios/jogo · 2 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 76% · Base: 2.800 análises internacionais</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-categoria="espanha">
+<div class="jogo-liga">La Liga</div>
+<div class="jogo-data">11/09 · 16:00</div>
+<div class="jogo-times">Real Madrid x Atlético de Madrid</div>
+<div class="palpite-resultado">⚖️ EMPATE</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.1</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">9</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">5</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Real Madrid: 2.3 gols/jogo · 7 escanteios/jogo · 3 cartões/jogo</div>
+<div class="hist-linha">Atlético: 1.8 gols/jogo · 6 escanteios/jogo · 3 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 62% · Base: 2.400 análises internacionais</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-categoria="italia">
+<div class="jogo-liga">Serie A</div>
+<div class="jogo-data">11/09 · 15:45</div>
+<div class="jogo-times">Inter de Milão x Juventus</div>
+<div class="palpite-resultado">✅ VITÓRIA INTER</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.0</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">8</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">4</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Inter: 2.2 gols/jogo · 6 escanteios/jogo · 2 cartões/jogo</div>
+<div class="hist-linha">Juventus: 1.7 gols/jogo · 5 escanteios/jogo · 3 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 74% · Base: 2.100 análises internacionais</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-categoria="franca">
+<div class="jogo-liga">Ligue 1</div>
+<div class="jogo-data">12/09 · 16:00</div>
+<div class="jogo-times">Paris Saint-Germain x Olympique Marseille</div>
+<div class="palpite-resultado">✅ VITÓRIA PSG</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.8</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">10</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">3</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">PSG: 3.0 gols/jogo · 8 escanteios/jogo · 2 cartões/jogo</div>
+<div class="hist-linha">Marseille: 2.0 gols/jogo · 6 escanteios/jogo · 2 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 83% · Base: 1.900 análises internacionais</div>
+</div>
+</div>
+
+</div>
+
+<script>
+const botoes = document.querySelectorAll('.filtro');
+const jogos = document.querySelectorAll('.jogo-bloco');
+botoes.forEach(botao => {
+    botao.addEventListener('click', function() {
+        botoes.forEach(b => b.classList.remove('ativo'));
+        this.classList.add('ativo');
+        const filtro = this.getAttribute('data-filtro');
+        jogos.forEach(jogo => {
+            const categoria = jogo.getAttribute('data-categoria');
+            jogo.classList.toggle('oculto', filtro !== 'todos' && categoria !== filtro);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
