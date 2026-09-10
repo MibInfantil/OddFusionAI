@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OddFusion · Buscar</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{background:#0f172a;color:#f1f5f9;max-width:430px;margin:0 auto;padding:15px;line-height:1.4}
+
+.cabecalho{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #1e293b}
+.titulo-pagina{font-size:18px;font-weight:bold;color:#fff}
+.subtitulo-pagina{font-size:12px;color:#94a3b8;margin-top:2px}
+.data-topo{font-size:11px;color:#94a3b8;text-align:right}
+.status-online{color:#4ade80;font-size:12px;margin-top:4px}
+
+nav{display:flex;gap:6px;margin:12px 0 15px 0;padding-bottom:10px;border-bottom:1px solid #1e293b;flex-wrap:wrap}
+nav a{color:#94a3b8;text-decoration:none;font-size:12px;padding:5px 8px;border-radius:4px;transition:all 0.2s ease}
+nav a.ativo{background:#22c55e;color:#fff;font-weight:500}
+nav a:hover{background:#1e293b;color:#e2e8f0}
+
+.caixa-busca{width:100%;padding:12px 15px;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#fff;font-size:15px;outline:none;margin-bottom:12px}
+.caixa-busca:focus{border-color:#4ade80}
+
+.botoes-filtro{display:flex;gap:6px;margin-bottom:15px;flex-wrap:wrap}
+.btn-filtro{background:#1e293b;border:none;color:#94a3b8;padding:6px 14px;border-radius:20px;font-size:12px;cursor:pointer;transition:all 0.2s ease}
+.btn-filtro.ativo{background:#22c55e;color:#fff;font-weight:500}
+.btn-filtro:hover{background:#334155;color:#e2e8f0}
+
+.resultado-vazio{text-align:center;padding:40px 15px;color:#64748b;font-size:14px}
+
+.jogo-bloco{background:#1e293b;border-left:3px solid #22c55e;border-radius:8px;padding:12px;margin-bottom:12px}
+.jogo-cab{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px}
+.jogo-liga{font-size:11px;color:#94a3b8}
+.jogo-data{font-size:11px;color:#60a5fa}
+.jogo-times{font-size:14px;font-weight:600;margin-bottom:8px;color:#f8fafc}
+
+/* ✅ PAINÉIS — FUNDO CINZA CLARO */
+.paineis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:8px 0}
+.painel{background:#334155;border-radius:6px;padding:6px 4px;text-align:center}
+.painel-nome{font-size:10px;color:#cbd5e1;margin-bottom:2px}
+.painel-valor{font-size:13px;font-weight:bold;color:#fff}
+
+.prob-linha{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.prob-item{font-size:11px;padding:3px 7px;border-radius:4px;font-weight:500}
+.prob-casa{background:rgba(34,197,94,0.15);color:#4ade80}
+.prob-empate{background:rgba(250,204,21,0.15);color:#facc15}
+.prob-fora{background:rgba(239,68,68,0.15);color:#f87171}
+
+.palpite-destaque{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);border-radius:6px;padding:7px 9px;margin-top:8px;margin-bottom:4px}
+.palpite-texto{color:#4ade80;font-size:12px;font-weight:500;display:flex;align-items:center;gap:5px}
+.info-linha{font-size:10px;color:#94a3b8;line-height:1.4;margin-top:3px}
+
+.oculto{display:none}
+</style>
+</head>
+<body>
+
+<div class="cabecalho">
+<div>
+<div class="titulo-pagina">OddFusion</div>
+<div class="subtitulo-pagina">Buscar Jogos e Análises</div>
+<div class="status-online">✅ Sistema Online</div>
+</div>
+<div>
+<div class="data-topo">10/09/2026</div>
+<button class="botao-atualizar">Atualizar</button>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Resumo</a>
+<a href="nacionais.html">Nacionais</a>
+<a href="internacionais.html">Internacionais</a>
+<a href="palpites.html">Palpites IA</a>
+<a href="desempenho.html">Desempenho</a>
+<a href="buscar.html">Buscar</a>
+<a href="sobre.html">Sobre</a>
+</nav>
+
+<h2>Buscar</h2>
+<input type="text" class="caixa-busca" id="campoBusca" placeholder="🔍 Digite time, liga ou data...">
+
+<div class="botoes-filtro">
+<button class="btn-filtro ativo" data-filtro="todos">Todos</button>
+<button class="btn-filtro" data-filtro="nacionais">🇧🇷 Nacionais</button>
+<button class="btn-filtro" data-filtro="internacionais">🌍 Internacionais</button>
+<button class="btn-filtro" data-filtro="hoje">Hoje</button>
+<button class="btn-filtro" data-filtro="amanha">Amanhã</button>
+</div>
+
+<div id="resultados">
+<div class="resultado-vazio" id="semResultado">
+Digite o nome de um time, campeonato ou use os filtros acima.
+</div>
+
+<div id="listaJogos" class="oculto">
+
+<div class="jogo-bloco" data-tags="fortaleza internacional brasileirão seriea hoje" data-filtro-cat="nacionais hoje">
+<div class="jogo-liga">Brasileirão Série A</div>
+<div class="jogo-data">HOJE · 19:30</div>
+<div class="jogo-times">Fortaleza x Internacional</div>
+<div class="jogo-palpite">✅ VITÓRIA FORTALEZA</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.6</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">10</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">3</div></div>
+</div>
+<div class="hist-secao">
+<div class="hist-titulo">📊 Histórico Recente</div>
+<div class="hist-linha">Fortaleza: 2.8 gols/jogo · 7 escanteios · 1 cartão</div>
+<div class="hist-linha">Internacional: 2.0 gols/jogo · 5 escanteios · 2 cartões</div>
+<div class="conf-ia">Confiança IA: 89% · Base: 1.852 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-tags="flamengo saopaulo brasileirão seriea hoje" data-filtro-cat="nacionais hoje">
+<div class="jogo-liga">Brasileirão Série A</div>
+<div class="jogo-data">HOJE · 20:00</div>
+<div class="jogo-times">Flamengo x São Paulo</div>
+<div class="jogo-palpite">✅ VITÓRIA FLAMENGO</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.4</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">11</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">4</div></div>
+</div>
+<div class="hist-secao">
+<div class="hist-titulo">📊 Histórico Recente</div>
+<div class="hist-linha">Flamengo: 2.5 gols/jogo · 8 escanteios · 2 cartões</div>
+<div class="hist-linha">São Paulo: 2.2 gols/jogo · 6 escanteios · 3 cartões</div>
+<div class="conf-ia">Confiança IA: 78% · Base: 1.852 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-tags="corinthians palmeiras brasileirão seriea amanha" data-filtro-cat="nacionais amanha">
+<div class="jogo-liga">Brasileirão Série A</div>
+<div class="jogo-data">Amanhã · 16:00</div>
+<div class="jogo-times">Corinthians x Palmeiras</div>
+<div class="jogo-palpite">⚖️ EMPATE</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">1.8</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">9</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">5</div></div>
+</div>
+<div class="hist-secao">
+<div class="hist-titulo">📊 Histórico Recente</div>
+<div class="hist-linha">Corinthians: 1.6 gols/jogo · 5 escanteios · 3 cartões</div>
+<div class="hist-linha">Palmeiras: 2.0 gols/jogo · 7 escanteios · 2 cartões</div>
+<div class="conf-ia">Confiança IA: 65% · Base: 1.852 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-tags="bahia vitoria brasileirão serieb amanha" data-filtro-cat="nacionais amanha">
+<div class="jogo-liga">Brasileirão Série B</div>
+<div class="jogo-data">Amanhã · 18:00</div>
+<div class="jogo-times">Bahia x Vitória</div>
+<div class="jogo-palpite">✅ VITÓRIA BAHIA</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.7</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">10</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">4</div></div>
+</div>
+<div class="hist-secao">
+<div class="hist-titulo">📊 Histórico Recente</div>
+<div class="hist-linha">Bahia: 2.9 gols/jogo · 7 escanteios · 2 cartões</div>
+<div class="hist-linha">Vitória: 2.1 gols/jogo · 6 escanteios · 3 cartões</div>
+<div class="conf-ia">Confiança IA: 82% · Base: 980 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-tags="mancity arsenal premierleague inglaterra hoje" data-filtro-cat="internacionais hoje">
+<div class="jogo-liga">Premier League · Inglaterra</div>
+<div class="jogo-data">HOJE · 14:30</div>
+<div class="jogo-times">Manchester City x Arsenal</div>
+<div class="jogo-palpite">✅ VITÓRIA MANCHESTER CITY</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.9</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">11</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">4</div></div>
+</div>
+<div class="hist-secao">
+<div class="hist-titulo">📊 Histórico Recente</div>
+<div class="hist-linha">Man. City: 3.1 gols/jogo · 10 escanteios · 1 cartão</div>
+<div class="hist-linha">Arsenal: 2.6 gols/jogo · 8 escanteios · 2 cartões</div>
+<div class="conf-ia">Confiança IA: 76% · Base: 2.800 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-tags="realmadrid atletico laliga espanha amanha" data-filtro-cat="internacionais amanha">
+<div class="jogo-liga">La Liga · Espanha</div>
+<div class="jogo-data">Amanhã · 16:00</div>
+<div class="jogo-times">Real Madrid x Atlético de Madrid</div>
+<div class="jogo-palpite">⚖️ EMPATE</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.1</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">9</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">5</div></div>
+</div>
+<div class="hist-secao">
+<div class="hist-titulo">📊 Histórico Recente</div>
+<div class="hist-linha">Real Madrid: 2.3 gols/jogo · 7 escanteios · 3 cartões</div>
+<div class="hist-linha">Atlético: 1.8 gols/jogo · 6 escanteios · 3 cartões</div>
+<div class="conf-ia">Confiança IA: 62% · Base: 2.400 análises</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<script>
+const campoBusca = document.getElementById('campoBusca');
+const semResultado = document.getElementById('semResultado');
+const listaJogos = document.getElementById('listaJogos');
+const jogos = document.querySelectorAll('.jogo-bloco');
+const botoesFiltro = document.querySelectorAll('.btn-filtro');
+let filtroAtivo = 'todos';
+
+function aplicarFiltros() {
+    const termo = campoBusca.value.toLowerCase().trim();
+    let qtdVisiveis = 0;
+    jogos.forEach(jogo => {
+        const tags = (jogo.dataset.tags || '').toLowerCase();
+        const categorias = (jogo.dataset.filtroCat || '');
+        const combinaFiltro = filtroAtivo === 'todos' || categorias.includes(filtroAtivo);
+        const combinaTexto = termo === '' || tags.includes(termo);
+        const visivel = combinaFiltro && combinaTexto;
+        jogo.classList.toggle('oculto', !visivel);
+        if (visivel) qtdVisiveis++;
+    });
+    semResultado.classList.toggle('oculto', qtdVisiveis > 0 || termo.length > 0);
+    listaJogos.classList.toggle('oculto', qtdVisiveis === 0 && termo.length === 0);
+}
+
+campoBusca.addEventListener('input', aplicarFiltros);
+
+botoesFiltro.forEach(botao => {
+    botao.addEventListener('click', function() {
+        botoesFiltro.forEach(b => b.classList.remove('ativo'));
+        this.classList.add('ativo');
+        filtroAtivo = this.dataset.filtro;
+        aplicarFiltros();
+    });
+});
+</script>
+
+</body>
+</html>
