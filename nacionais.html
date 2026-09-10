@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OddFusion · Nacionais</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{background:#0f172a;color:#f1f5f9;max-width:430px;margin:0 auto;padding:15px}
+.cabecalho{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #1e293b}
+.titulo-pagina{font-size:17px;font-weight:bold;color:#fff}
+.subtitulo-pagina{font-size:11px;color:#94a3b8;margin-top:2px}
+.data-topo{font-size:11px;color:#94a3b8}
+.status-online{color:#4ade80;font-size:12px;margin-top:4px}
+.botao-atualizar{background:#1e293b;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-size:11px;cursor:pointer}
+
+/* ✅ MENU COMPACTADO — menor espaçamento e fonte */
+nav{display:flex;gap:6px;margin:12px 0;padding-bottom:8px;border-bottom:1px solid #1e293b;flex-wrap:wrap}
+nav a{color:#94a3b8;text-decoration:none;font-size:12px;padding:3px 4px;border-bottom:2px solid transparent}
+nav a.ativo{color:#fff;border-bottom:2px solid #4ade80;font-weight:500}
+
+h2{font-size:14px;margin:12px 0 8px 0;color:#e2e8f0}
+.filtros{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
+.filtro{background:#1e293b;border:none;color:#94a3b8;padding:4px 9px;border-radius:20px;font-size:11px;white-space:nowrap;cursor:pointer}
+.filtro.ativo{background:#4ade80;color:#0f172a;font-weight:bold}
+.jogo-bloco{margin-bottom:18px;padding-bottom:15px;border-bottom:1px solid #1e293b}
+.jogo-liga{font-size:11px;color:#94a3b8;margin-bottom:4px}
+.jogo-data{font-size:11px;color:#60a5fa;margin-bottom:6px;text-align:right;margin-top:-20px}
+.jogo-times{font-size:14px;font-weight:600;margin-bottom:8px}
+.palpite-resultado{display:inline-flex;align-items:center;gap:4px;color:#4ade80;font-size:12px;font-weight:500;margin-bottom:8px}
+.paineis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin:8px 0}
+.painel{background:#1e293b;border-radius:6px;padding:6px 4px;text-align:center}
+.painel-nome{font-size:10px;color:#94a3b8;margin-bottom:2px}
+.painel-valor{font-size:13px;font-weight:bold;color:#fff}
+.secao-hist{margin-top:8px}
+.hist-titulo{font-size:10px;color:#94a3b8;margin-bottom:4px;display:flex;align-items:center;gap:3px}
+.hist-linha{font-size:11px;color:#cbd5e1;margin:2px 0;line-height:1.4}
+.conf-ia{font-size:11px;color:#60a5fa;margin-top:4px}
+.oculto{display:none}
+</style>
+</head>
+<body>
+
+<div class="cabecalho">
+<div>
+<div class="titulo-pagina">OddFusion</div>
+<div class="subtitulo-pagina">Jogos Nacionais</div>
+<div class="status-online">✅ Sistema Online</div>
+</div>
+<div>
+<div class="data-topo">10/09/2026</div>
+<button class="botao-atualizar">Atualizar</button>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Resumo</a>
+<a href="nacionais.html">Nacionais</a>
+<a href="internacionais.html">Internacionais</a>
+<a href="palpites.html">Palpites IA</a>
+<a href="desempenho.html">Desempenho</a>
+<a href="buscar.html">Buscar</a>
+<a href="sobre.html">Sobre</a>
+</nav>
+
+<h2>Análise Completa — Jogos do Brasil</h2>
+
+<div class="filtros">
+<button class="filtro ativo" data-filtro="todos">Todos</button>
+<button class="filtro" data-filtro="seriea">Série A</button>
+<button class="filtro" data-filtro="serieb">Série B</button>
+<button class="filtro" data-filtro="copabrasil">Copa do Brasil</button>
+<button class="filtro" data-filtro="estaduais">Estaduais</button>
+</div>
+
+<div id="listaJogos">
+
+<div class="jogo-bloco" data-categoria="seriea">
+<div class="jogo-liga">Brasileirão Série A</div>
+<div class="jogo-data">10/09 · 19:30</div>
+<div class="jogo-times">Fortaleza x Internacional</div>
+<div class="palpite-resultado">✅ VITÓRIA FORTALEZA</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.6</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">10</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">3</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Fortaleza: 2.8 gols/jogo · 7 escanteios/jogo · 1 cartão/jogo</div>
+<div class="hist-linha">Internacional: 2.0 gols/jogo · 5 escanteios/jogo · 2 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 89% · Base: 1.852 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-categoria="seriea">
+<div class="jogo-liga">Brasileirão Série A</div>
+<div class="jogo-data">10/09 · 20:00</div>
+<div class="jogo-times">Flamengo x São Paulo</div>
+<div class="palpite-resultado">✅ VITÓRIA FLAMENGO</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.4</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">11</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">4</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Flamengo: 2.5 gols/jogo · 8 escanteios/jogo · 2 cartões/jogo</div>
+<div class="hist-linha">São Paulo: 2.2 gols/jogo · 6 escanteios/jogo · 3 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 78% · Base: 1.852 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-categoria="seriea">
+<div class="jogo-liga">Brasileirão Série A</div>
+<div class="jogo-data">11/09 · 16:00</div>
+<div class="jogo-times">Corinthians x Palmeiras</div>
+<div class="palpite-resultado">⚖️ EMPATE</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">1.8</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">9</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">5</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Corinthians: 1.6 gols/jogo · 5 escanteios/jogo · 3 cartões/jogo</div>
+<div class="hist-linha">Palmeiras: 2.0 gols/jogo · 7 escanteios/jogo · 2 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 65% · Base: 1.852 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-categoria="serieb">
+<div class="jogo-liga">Brasileirão Série B</div>
+<div class="jogo-data">11/09 · 18:00</div>
+<div class="jogo-times">Bahia x Vitória</div>
+<div class="palpite-resultado">✅ VITÓRIA BAHIA</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.7</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">10</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">4</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Bahia: 2.9 gols/jogo · 7 escanteios/jogo · 2 cartões/jogo</div>
+<div class="hist-linha">Vitória: 2.1 gols/jogo · 6 escanteios/jogo · 3 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 82% · Base: 980 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-categoria="copabrasil">
+<div class="jogo-liga">Copa do Brasil</div>
+<div class="jogo-data">12/09 · 19:00</div>
+<div class="jogo-times">Grêmio x Cruzeiro</div>
+<div class="palpite-resultado">✅ VITÓRIA GRÊMIO</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.2</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">8</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">4</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Grêmio: 2.3 gols/jogo · 6 escanteios/jogo · 2 cartões/jogo</div>
+<div class="hist-linha">Cruzeiro: 2.0 gols/jogo · 5 escanteios/jogo · 3 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 74% · Base: 1.450 análises</div>
+</div>
+</div>
+
+<div class="jogo-bloco" data-categoria="estaduais">
+<div class="jogo-liga">Paulistão</div>
+<div class="jogo-data">13/09 · 15:00</div>
+<div class="jogo-times">Santos x Ponte Preta</div>
+<div class="palpite-resultado">✅ VITÓRIA SANTOS</div>
+<div class="paineis">
+<div class="painel"><div class="painel-nome">Gols</div><div class="painel-valor">2.8</div></div>
+<div class="painel"><div class="painel-nome">Escanteios</div><div class="painel-valor">11</div></div>
+<div class="painel"><div class="painel-nome">Cartões</div><div class="painel-valor">3</div></div>
+</div>
+<div class="secao-hist">
+<div class="hist-titulo">📊 Histórico Recente (últimos 4 jogos)</div>
+<div class="hist-linha">Santos: 3.0 gols/jogo · 8 escanteios/jogo · 1 cartão/jogo</div>
+<div class="hist-linha">Ponte Preta: 1.8 gols/jogo · 5 escanteios/jogo · 3 cartões/jogo</div>
+<div class="conf-ia">Confiança IA: 85% · Base: 720 análises</div>
+</div>
+</div>
+
+</div>
+
+<script>
+const botoes = document.querySelectorAll('.filtro');
+const jogos = document.querySelectorAll('.jogo-bloco');
+botoes.forEach(botao => {
+    botao.addEventListener('click', function() {
+        botoes.forEach(b => b.classList.remove('ativo'));
+        this.classList.add('ativo');
+        const filtro = this.getAttribute('data-filtro');
+        jogos.forEach(jogo => {
+            const categoria = jogo.getAttribute('data-categoria');
+            jogo.classList.toggle('oculto', filtro !== 'todos' && categoria !== filtro);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
