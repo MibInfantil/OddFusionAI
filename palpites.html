@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OddFusion · Palpites IA</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{background:#0f172a;color:#f1f5f9;max-width:430px;margin:0 auto;padding:15px}
+.cabecalho{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid #1e293b}
+.titulo-pagina{font-size:17px;font-weight:bold;color:#fff}
+.subtitulo-pagina{font-size:11px;color:#94a3b8;margin-top:2px}
+.data-topo{font-size:11px;color:#94a3b8}
+.status-online{color:#4ade80;font-size:12px;margin-top:4px}
+.botao-atualizar{background:#1e293b;color:#fff;border:none;padding:5px 10px;border-radius:6px;font-size:11px;cursor:pointer}
+nav{display:flex;gap:6px;margin:12px 0;padding-bottom:8px;border-bottom:1px solid #1e293b;flex-wrap:wrap}
+nav a{color:#94a3b8;text-decoration:none;font-size:12px;padding:3px 4px;border-bottom:2px solid transparent}
+nav a.ativo{color:#fff;border-bottom:2px solid #4ade80;font-weight:500}
+h2{font-size:14px;margin:12px 0 8px 0;color:#e2e8f0}
+.filtros{display:flex;gap:5px;margin-bottom:12px;flex-wrap:wrap}
+.filtro{background:#1e293b;border:none;color:#94a3b8;padding:4px 9px;border-radius:20px;font-size:11px;white-space:nowrap;cursor:pointer}
+.filtro.ativo{background:#4ade80;color:#0f172a;font-weight:bold}
+.palpite-bloco{background:#1e293b;border-radius:8px;padding:12px;margin-bottom:12px;border-left:3px solid #4ade80}
+.palpite-hoje{border-left-color:#60a5fa}
+.palpite-liga{font-size:11px;color:#94a3b8;margin-bottom:4px}
+.palpite-data{font-size:11px;color:#60a5fa;margin-bottom:6px;text-align:right;margin-top:-20px}
+.palpite-times{font-size:14px;font-weight:600;margin-bottom:10px}
+.prob-linha{display:flex;justify-content:space-between;font-size:12px;margin:4px 0;padding:4px 8px;background:#0f172a;border-radius:4px}
+.prob-casa{color:#60a5fa}
+.prob-empate{color:#facc15}
+.prob-fora{color:#f87171}
+.resultado-ia{margin-top:10px;padding:8px;background:rgba(74,222,128,.1);border-radius:6px;border:1px solid rgba(74,222,128,.2)}
+.resultado-titulo{font-size:11px;color:#94a3b8;margin-bottom:4px}
+.resultado-valor{font-size:14px;font-weight:bold;color:#4ade80}
+.conf-destaque{display:inline-block;margin-top:6px;font-size:11px;color:#facc15}
+.tendencia{font-size:11px;color:#cbd5e1;margin-top:4px}
+.oculto{display:none}
+</style>
+</head>
+<body>
+
+<div class="cabecalho">
+<div>
+<div class="titulo-pagina">OddFusion</div>
+<div class="subtitulo-pagina">Palpites da Inteligência Artificial</div>
+<div class="status-online">✅ Sistema Online</div>
+</div>
+<div>
+<div class="data-topo">10/09/2026</div>
+<button class="botao-atualizar">Atualizar</button>
+</div>
+</div>
+
+<nav>
+<a href="index.html">Resumo</a>
+<a href="nacionais.html">Nacionais</a>
+<a href="internacionais.html">Internacionais</a>
+<a href="palpites.html">Palpites IA</a>
+<a href="desempenho.html">Desempenho</a>
+<a href="buscar.html">Buscar</a>
+<a href="sobre.html">Sobre</a>
+</nav>
+
+<h2>Análise e Recomendações</h2>
+
+<div class="filtros">
+<button class="filtro ativo" data-filtro="todos">Todos</button>
+<button class="filtro" data-filtro="hoje">Hoje</button>
+<button class="filtro" data-filtro="amanha">Amanhã</button>
+<button class="filtro" data-filtro="alta">Alta Confiança</button>
+<button class="filtro" data-filtro="media">Média Confiança</button>
+</div>
+
+<div id="listaPalpites">
+
+<div class="palpite-bloco palpite-hoje" data-filtro-cat="hoje alta">
+<div class="palpite-liga">Brasileirão Série A</div>
+<div class="palpite-data">HOJE · 19:30</div>
+<div class="palpite-times">Fortaleza x Internacional</div>
+<div class="prob-linha"><span class="prob-casa">Casa 55%</span><span class="prob-empate">Empate 25%</span><span class="prob-fora">Fora 20%</span></div>
+<div class="resultado-ia">
+<div class="resultado-titulo">Palpite da IA</div>
+<div class="resultado-valor">✅ VITÓRIA FORTALEZA</div>
+</div>
+<div class="conf-destaque">Confiança: 89% · Precisão histórica: 82%</div>
+<div class="tendencia">📈 Tendência: Casa favorito · Estabilidade: Alta</div>
+</div>
+
+<div class="palpite-bloco palpite-hoje" data-filtro-cat="hoje alta">
+<div class="palpite-liga">Brasileirão Série A</div>
+<div class="palpite-data">HOJE · 20:00</div>
+<div class="palpite-times">Flamengo x São Paulo</div>
+<div class="prob-linha"><span class="prob-casa">Casa 52%</span><span class="prob-empate">Empate 28%</span><span class="prob-fora">Fora 20%</span></div>
+<div class="resultado-ia">
+<div class="resultado-titulo">Palpite da IA</div>
+<div class="resultado-valor">✅ VITÓRIA FLAMENGO</div>
+</div>
+<div class="conf-destaque">Confiança: 78% · Precisão histórica: 76%</div>
+<div class="tendencia">📊 Tendência: Pequena vantagem casa · Estabilidade: Média</div>
+</div>
+
+<div class="palpite-bloco" data-filtro-cat="amanha media">
+<div class="palpite-liga">Brasileirão Série A</div>
+<div class="palpite-data">Amanhã · 16:00</div>
+<div class="palpite-times">Corinthians x Palmeiras</div>
+<div class="prob-linha"><span class="prob-casa">Casa 38%</span><span class="prob-empate">Empate 32%</span><span class="prob-fora">Fora 30%</span></div>
+<div class="resultado-ia">
+<div class="resultado-titulo">Palpite da IA</div>
+<div class="resultado-valor">⚖️ EMPATE</div>
+</div>
+<div class="conf-destaque">Confiança: 65% · Precisão histórica: 71%</div>
+<div class="tendencia">⚖️ Tendência: Jogo equilibrado · Estabilidade: Baixa</div>
+</div>
+
+<div class="palpite-bloco" data-filtro-cat="amanha alta">
+<div class="palpite-liga">Brasileirão Série B</div>
+<div class="palpite-data">Amanhã · 18:00</div>
+<div class="palpite-times">Bahia x Vitória</div>
+<div class="prob-linha"><span class="prob-casa">Casa 58%</span><span class="prob-empate">Empate 22%</span><span class="prob-fora">Fora 20%</span></div>
+<div class="resultado-ia">
+<div class="resultado-titulo">Palpite da IA</div>
+<div class="resultado-valor">✅ VITÓRIA BAHIA</div>
+</div>
+<div class="conf-destaque">Confiança: 82% · Precisão histórica: 79%</div>
+<div class="tendencia">📈 Tendência: Favorito claro · Estabilidade: Alta</div>
+</div>
+
+<div class="palpite-bloco palpite-hoje" data-filtro-cat="hoje media">
+<div class="palpite-liga">Premier League · Inglaterra</div>
+<div class="palpite-data">HOJE · 14:30</div>
+<div class="palpite-times">Manchester City x Arsenal</div>
+<div class="prob-linha"><span class="prob-casa">Casa 54%</span><span class="prob-empate">Empate 23%</span><span class="prob-fora">Fora 23%</span></div>
+<div class="resultado-ia">
+<div class="resultado-titulo">Palpite da IA</div>
+<div class="resultado-valor">✅ VITÓRIA MANCHESTER CITY</div>
+</div>
+<div class="conf-destaque">Confiança: 76% · Precisão histórica: 80%</div>
+<div class="tendencia">📊 Tendência: Vantagem moderada · Estabilidade: Média</div>
+</div>
+
+</div>
+
+<script>
+const botoes = document.querySelectorAll('.filtro');
+const palpites = document.querySelectorAll('.palpite-bloco');
+botoes.forEach(botao => {
+    botao.addEventListener('click', function() {
+        botoes.forEach(b => b.classList.remove('ativo'));
+        this.classList.add('ativo');
+        const filtro = this.getAttribute('data-filtro');
+        palpites.forEach(palpite => {
+            const categorias = palpite.getAttribute('data-filtro-cat') || '';
+            palpite.classList.toggle('oculto', filtro !== 'todos' && !categorias.includes(filtro));
+        });
+    });
+});
+</script>
+
+</body>
+</html>
